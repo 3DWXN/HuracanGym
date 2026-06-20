@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Huracan Box: gimnasio, clases grupales, planes de entrenamiento y suplementos deportivos." />
+  <title>Huracan Box | Gimnasio y suplementos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" data-header>
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img src="assets/images/logo-huracan-box.jpg" alt="Logo Huracan Box" />
+      <span>Huracan Box</span>
+    </a>
+
+    <button class="icon-button menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+
+    <nav class="main-nav" data-main-nav>
+      <a class="active" href="#entrena">Entrena</a>
+      <a href="#suplementos">Tienda</a>
+      <a href="#horarios">Horarios</a>
+      <a href="#planes">Planes</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/images/clase-cortesia.jpg" alt="" />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow"><span class="material-symbols-outlined">bolt</span> Estilo Huracan</p>
+        <h1>Transforma tu <span>cuerpo</span>, fortalece tu mente.</h1>
+        <p class="hero-copy">Entrena con los mejores equipos, entrenadores certificados y un ambiente disenado para alcanzar tus objetivos mas ambiciosos.</p>
+        <div class="hero-actions">
+          <button class="button primary" type="button" data-whatsapp="Hola, quiero empezar a entrenar en Huracan Box. Me puedes enviar informacion de inscripcion?">
+            Comenzar ahora
+            <span class="material-symbols-outlined">trending_flat</span>
+          </button>
+          <a class="button ghost" href="#planes">Ver planes</a>
+        </div>
+        <div class="hero-stats is-hidden" aria-label="Datos destacados">
+          <span><strong>5:00 AM</strong> Inicio AM</span>
+          <span><strong>9:30 PM</strong> Cierre PM</span>
+          <span><strong>Suples</strong> En tienda</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="vision">
+      <div class="container intro-grid">
+        <div>
+          <p class="section-kicker">El estilo del box</p>
+          <h2>Fuerza, disciplina y una comunidad que empuja.</h2>
+        </div>
+        <p>La pagina toma la identidad de las piezas reales del gimnasio: morado intenso, negro, energia de clase grupal y suplementos como parte natural de la experiencia. Todo queda listo para ajustar textos, precios y redes reales cuando los tengas.</p>
+      </div>
+    </section>
+
+    <section class="section" id="entrena">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Entrenamiento</p>
+          <h2>Elige como quieres moverte.</h2>
+        </div>
+        <div class="training-grid">
+          <article class="feature-card large">
+            <img src="assets/images/clase-gimnasia.jpg" alt="Clase de gimnasia en Huracan Box" />
+            <div>
+              <span class="tag">Martes</span>
+              <h3>Clases de gimnasia</h3>
+              <p>Tecnica, control corporal y progresiones para mejorar fuerza y movilidad.</p>
+              <button type="button" data-whatsapp="Hola, quiero informacion sobre las clases de gimnasia de los martes.">Preguntar por gimnasia</button>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img src="assets/images/clase-crosskids.jpg" alt="Clase CrossKids" />
+            <div>
+              <span class="tag">Sabados</span>
+              <h3>CrossKids</h3>
+              <p>Entrenamiento divertido y seguro para que los ninos construyan habitos activos.</p>
+              <button type="button" data-whatsapp="Hola, quiero informacion sobre CrossKids en Huracan Box.">Info CrossKids</button>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img src="assets/images/clase-cortesia.jpg" alt="Clase de cortesia" />
+            <div>
+              <span class="tag">Nuevo ingreso</span>
+              <h3>Clase de cortesia</h3>
+              <p>Ven, conoce el ambiente y prueba una sesion antes de escoger tu plan.</p>
+              <button type="button" data-whatsapp="Hola, quiero reservar mi clase de cortesia en Huracan Box.">Reservar clase</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plans-section" id="planes">
+      <div class="container">
+        <div class="section-heading centered">
+          <p class="section-kicker">Membresias</p>
+          <h2>Planes para entrenar sin excusas.</h2>
+        </div>
+        <div class="plans-grid">
+          <article class="plan-card">
+            <h3>Mensualidad</h3>
+            <p class="price">$120.000</p>
+            <ul>
+              <li>Acceso al gimnasio</li>
+              <li>Acompanamiento de rutina</li>
+              <li>Clase de cortesia incluida</li>
+            </ul>
+            <button class="button full" type="button" data-whatsapp="Hola, quiero inscribirme al plan mensual de Huracan Box por $120.000.">Elegir mensual</button>
+          </article>
+          <article class="plan-card highlighted">
+            <span class="popular">Mas elegido</span>
+            <h3>Semestral</h3>
+            <p class="price">$600.000</p>
+            <ul>
+              <li>Mejor valor por mes</li>
+              <li>Seguimiento de progreso</li>
+              <li>Prioridad en clases grupales</li>
+            </ul>
+            <button class="button full primary" type="button" data-whatsapp="Hola, quiero tomar el plan semestral de Huracan Box por $600.000.">Inscribirme</button>
+          </article>
+          <article class="plan-card">
+            <h3>Anual</h3>
+            <p class="price">$850.000</p>
+            <ul>
+              <li>Mayor ahorro</li>
+              <li>Comunidad y retos internos</li>
+              <li>Beneficios en suplementos</li>
+            </ul>
+            <button class="button full" type="button" data-whatsapp="Hola, quiero informacion del plan anual de Huracan Box por $850.000.">Elegir anual</button>
+          </article>
+        </div>
+        <div class="promo-strip">
+          <img src="assets/images/planes-morado.jpg" alt="Promocion de planes Huracan Box" />
+          <div>
+            <h3>Tambien hay plan por dia y opciones flexibles.</h3>
+            <p>Si no sabes por cual empezar, escribe y te recomendamos una opcion segun tu horario y objetivo.</p>
+          </div>
+          <button class="button primary" type="button" data-whatsapp="Hola, necesito ayuda para elegir el mejor plan de Huracan Box segun mi objetivo.">Me asesoran</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results-section" id="experiencia">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Experiencia Huracan</p>
+            <h2>Una pagina pensada para convertir visitas en mensajes.</h2>
+          </div>
+          <button class="button ghost compact" type="button" data-whatsapp="Hola, quiero conocer la experiencia Huracan Box antes de inscribirme.">Hablar con el box</button>
+        </div>
+        <div class="experience-grid">
+          <article>
+            <span class="material-symbols-outlined">flag</span>
+            <h3>Valoracion inicial</h3>
+            <p>El usuario puede preguntar por una valoracion para saber por donde empezar y que plan le conviene.</p>
+            <button type="button" data-whatsapp="Hola, quiero agendar una valoracion inicial en Huracan Box.">Agendar valoracion</button>
+          </article>
+          <article>
+            <span class="material-symbols-outlined">groups</span>
+            <h3>Comunidad</h3>
+            <p>Se comunica el ambiente del box, las clases y el acompanamiento, no solo maquinas o precios.</p>
+            <button type="button" data-whatsapp="Hola, quiero saber como son las clases y la comunidad de Huracan Box.">Conocer clases</button>
+          </article>
+          <article>
+            <span class="material-symbols-outlined">monitoring</span>
+            <h3>Progreso</h3>
+            <p>La pagina invita a entrenar con objetivo: fuerza, perdida de grasa, rendimiento o habitos.</p>
+            <button type="button" data-whatsapp="Hola, quiero entrenar con un objetivo claro y recibir orientacion.">Definir objetivo</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="horarios">
+      <div class="container schedule-layout">
+        <div>
+          <p class="section-kicker">Horarios</p>
+          <h2>Entrena AM o PM, sin perder el ritmo.</h2>
+          <p>Horarios de lunes a viernes con bloques de manana y tarde/noche. Los sabados quedan disponibles para clases especiales como CrossKids y jornadas de comunidad.</p>
+          <div class="schedule-cards">
+            <article>
+              <span class="material-symbols-outlined">wb_sunny</span>
+              <h3>Manana</h3>
+              <p>5:00 AM a 10:00 AM</p>
+              <small>Ultima clase: 9:00 AM</small>
+            </article>
+            <article>
+              <span class="material-symbols-outlined">dark_mode</span>
+              <h3>Tarde / noche</h3>
+              <p>5:30 PM a 9:30 PM</p>
+              <small>Ultima clase: 8:30 PM</small>
+            </article>
+          </div>
+          <button class="button primary" type="button" data-whatsapp="Hola, quiero confirmar disponibilidad de horarios para entrenar en Huracan Box.">Confirmar horario</button>
+        </div>
+        <div class="poster-stack">
+          <img src="assets/images/horario-lunes-viernes.jpg" alt="Horario lunes a viernes Huracan Box" />
+          <img src="assets/images/horario-semana.jpg" alt="Horario fines de semana Huracan Box" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section store-section" id="suplementos">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Tienda</p>
+          <h2>Suplementos para acompanar tu proceso.</h2>
+          <button class="button ghost compact" type="button" data-whatsapp="Hola, quiero ver el catalogo completo de suplementos de Huracan Box.">Pedir catalogo</button>
+        </div>
+        <div class="store-shell">
+          <button class="carousel-control prev" type="button" aria-label="Producto anterior" data-carousel-prev>
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <div class="products-carousel" data-products-carousel>
+          <article class="product-card" data-product="CR7 nueva presentacion">
+            <img src="assets/images/producto-cr7.jpg" alt="Suplemento CR7 nueva presentacion" />
+            <h3>CR7 nueva presentacion</h3>
+            <p>Pre-entreno con registro Invima.</p>
+            <button type="button">Consultar</button>
+          </article>
+          <article class="product-card" data-product="Creatina 100">
+            <img src="assets/images/producto-creatina-100.jpg" alt="Creatina 100" />
+            <h3>Creatina 100</h3>
+            <p>Apoyo para fuerza, potencia y rendimiento.</p>
+            <button type="button">Consultar</button>
+          </article>
+          <article class="product-card" data-product="Atomic 05">
+            <img src="assets/images/producto-atomic.jpg" alt="Atomic 05" />
+            <h3>Atomic 05</h3>
+            <p>Formula para energia y foco de entrenamiento.</p>
+            <button type="button">Consultar</button>
+          </article>
+          <article class="product-card" data-product="Creatina Monohydrate">
+            <img src="assets/images/producto-creatina-monohydrate.jpg" alt="Creatina monohydrate" />
+            <h3>Creatina Monohydrate</h3>
+            <p>Opcion limpia para rendimiento diario.</p>
+            <button type="button">Consultar</button>
+          </article>
+          <article class="product-card" data-product="Best Protein">
+            <img src="assets/images/producto-best-protein.jpg" alt="Best Protein" />
+            <h3>Best Protein</h3>
+            <p>Proteina para completar tus macros.</p>
+            <button type="button">Consultar</button>
+          </article>
+          <article class="product-card" data-product="Batidos de proteina">
+            <img src="assets/images/batidos-proteina.jpg" alt="Batidos de proteina Huracan Box" />
+            <h3>Batidos de proteina</h3>
+            <p>Sabores para tomar despues de entrenar.</p>
+            <button type="button">Consultar</button>
+          </article>
+          </div>
+          <button class="carousel-control next" type="button" aria-label="Siguiente producto" data-carousel-next>
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section">
+      <div class="container">
+        <div class="section-heading centered">
+          <p class="section-kicker">Como empezar</p>
+          <h2>De curioso a miembro en tres pasos.</h2>
+        </div>
+        <div class="steps-grid">
+          <article>
+            <strong>01</strong>
+            <h3>Escribes por WhatsApp</h3>
+            <p>La pagina lleva cada boton con un mensaje distinto para que el equipo sepa que busca la persona.</p>
+          </article>
+          <article>
+            <strong>02</strong>
+            <h3>Pruebas o eliges plan</h3>
+            <p>Puede reservar clase de cortesia, preguntar por horarios o comparar membresias.</p>
+          </article>
+          <article>
+            <strong>03</strong>
+            <h3>Entrenas con foco</h3>
+            <p>Se conecta entrenamiento, comunidad y suplementos para sostener el proceso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="pqrs">
+      <div class="container faq-grid">
+        <div class="faq-info">
+          <p class="section-kicker">Asistente virtual</p>
+          <h2>Respuestas rápidas sin esperar.</h2>
+          <p>Pregunta por planes, horarios, suplementos o cualquier duda. Si el asistente no entiende, te conecta directo con el equipo por WhatsApp.</p>
+          <div class="quick-questions" data-quick-questions>
+            <button type="button">Planes</button>
+            <button type="button">Horarios</button>
+            <button type="button">Clase gratis</button>
+            <button type="button">Suplementos</button>
+            <button type="button">PQRS</button>
+          </div>
+        </div>
+        <div class="chatbot" data-chatbot>
+          <div class="chatbot-header">
+            <span class="chatbot-avatar"><span class="material-symbols-outlined">smart_toy</span></span>
+            <div>
+              <p class="chatbot-name">Asistente Huracán</p>
+              <p class="chatbot-status">Online</p>
+            </div>
+          </div>
+          <div class="chat-window" data-chat-window>
+            <div class="bot-message">Hola, soy el asistente de Huracan Box. Preguntame por planes, horarios, suplementos, clase de cortesia o PQRS.</div>
+          </div>
+          <form class="chat-form" data-chat-form>
+            <input name="question" type="text" placeholder="Escribe tu pregunta..." autocomplete="off" />
+            <button type="submit" aria-label="Enviar"><span class="material-symbols-outlined">send</span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section brief-section">
+      <div class="container brief-card">
+        <div>
+          <p class="section-kicker">Brief de la duena</p>
+          <h2>La vision de ella manda.</h2>
+          <p>Prepare una encuesta para que la duena responda prioridades, precios, redes, preguntas frecuentes y observaciones. Con eso se ajusta la pagina a su criterio y no solo a una idea bonita.</p>
+        </div>
+        <a class="button primary" href="brief-duena-gimnasio.md" download>Descargar encuesta</a>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contacto">
+      <div class="container contact-grid">
+        <div>
+          <p class="section-kicker">Contacto</p>
+          <h2>Cuéntanos tu objetivo y te respondemos por WhatsApp.</h2>
+          <p>Completa el formulario y la pagina armara un mensaje listo para enviar al numero del gimnasio.</p>
+          <div class="contact-actions">
+            <button class="button primary" type="button" data-whatsapp="Hola, quiero hablar con Huracan Box por WhatsApp.">WhatsApp directo</button>
+            <button class="button ghost" type="button" data-map>Como llegar</button>
+          </div>
+        </div>
+        <form class="contact-form" data-contact-form>
+          <label>
+            Nombre
+            <input name="name" type="text" placeholder="Tu nombre" required />
+          </label>
+          <label>
+            Objetivo
+            <select name="goal" required>
+              <option value="perdida de grasa">Perdida de grasa</option>
+              <option value="ganancia muscular">Ganancia muscular</option>
+              <option value="rendimiento">Rendimiento</option>
+              <option value="clase de cortesia">Clase de cortesia</option>
+              <option value="suplementos">Suplementos</option>
+            </select>
+          </label>
+          <label>
+            Mensaje
+            <textarea name="message" rows="4" placeholder="Ej: quiero entrenar en las noches y saber que plan me conviene"></textarea>
+          </label>
+          <button class="button primary full" type="submit">Enviar por WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section links-section" id="links">
+      <div class="container">
+        <div class="section-heading centered">
+          <p class="section-kicker">Links rapidos</p>
+          <h2>Todo lo importante en un solo lugar.</h2>
+        </div>
+        <div class="links-grid">
+          <a href="https://www.instagram.com/huracanboxgym" target="_blank" rel="noreferrer">
+            <span class="material-symbols-outlined">photo_camera</span>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/huracanboxgym" target="_blank" rel="noreferrer">
+            <span class="material-symbols-outlined">thumb_up</span>
+            Facebook
+          </a>
+          <a href="https://www.tiktok.com/@huracanboxgym" target="_blank" rel="noreferrer">
+            <span class="material-symbols-outlined">music_note</span>
+            TikTok
+          </a>
+          <a href="https://wa.me/5731136218094?text=Hola%2C%20quiero%20informacion%20de%20Huracan%20Box." target="_blank" rel="noreferrer">
+            <span class="material-symbols-outlined">chat</span>
+            WhatsApp
+          </a>
+          <a href="https://maps.google.com/?q=Huracan%20Box%20gimnasio" target="_blank" rel="noreferrer">
+            <span class="material-symbols-outlined">location_on</span>
+            Ubicacion
+          </a>
+          <a href="mailto:hola@huracanbox.com">
+            <span class="material-symbols-outlined">mail</span>
+            Correo
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2 class="footer-logo">HURACÁN BOX</h2>
+          <p class="footer-tagline">No compites con otros. Entrenas para superarte a ti mismo.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/huracanboxgym" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/huracanboxgym" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@huracanboxgym" target="_blank" rel="noreferrer" aria-label="TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Navegación</h3>
+          <a href="#entrena">Training</a>
+          <a href="#suplementos">Store</a>
+          <a href="#horarios">Schedule</a>
+          <a href="#planes">Pricing</a>
+          <a href="#experiencia">Experience</a>
+        </div>
+        <div class="footer-contact">
+          <h3>Contacto</h3>
+          <a href="tel:+5731136218094">+57 311 362 18094</a>
+          <a href="https://maps.google.com/?q=Huracan%20Box%20gimnasio" target="_blank" rel="noreferrer">Ver ubicación</a>
+          <button type="button" data-whatsapp="Hola, quiero informacion de Huracan Box.">WhatsApp</button>
+        </div>
+        <div class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Recibe tips, promos y novedades.</p>
+          <form class="mini-form" data-newsletter-form>
+            <input type="email" placeholder="Tu correo" required />
+            <button type="submit" aria-label="Suscribirme"><span class="material-symbols-outlined">send</span></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Huracan Box. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
