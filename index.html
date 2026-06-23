@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Huracan Box: gimnasio, clases grupales, planes de entrenamiento y suplementos deportivos." />
+  <meta name="theme-color" content="#0f0e14" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' https://unpkg.com;
@@ -35,11 +37,13 @@
       </button>
 
       <nav class="main-nav" data-main-nav>
-        <a class="active" href="#entrena">Entrena</a>
-        <a href="#suplementos">Tienda</a>
-        <a href="#horarios">Horarios</a>
+        <span class="nav-slider" aria-hidden="true"></span>
+        <a href="#testimonios">Testimonios</a>
         <a href="#planes">Planes</a>
-        <a href="#experiencia">Experiencia</a>
+        <a href="#disciplinas">Disciplinas</a>
+        <a class="active" href="#entrena">Entrena</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#suplementos">Suplementos</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -54,15 +58,14 @@
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <p class="eyebrow"><span class="material-symbols-outlined">bolt</span> Estilo Huracan</p>
-        <h1 class="hero-title">Transforma tu <span>cuerpo</span>, fortalece tu mente.</h1>
+        <h1 class="hero-title" data-hero-title></h1>
         <p class="hero-copy">Entrena con los mejores equipos, entrenadores certificados y un ambiente disenado para alcanzar tus objetivos mas ambiciosos.</p>
         <p class="hero-lema">No compites con otros. Te superas a ti.</p>
         <div class="hero-actions">
-          <button class="button primary" type="button" data-whatsapp="Hola, quiero empezar a entrenar en Huracan Box. Me puedes enviar informacion de inscripcion?">
+          <button class="button primary" type="button" data-scroll-to="planes">
             Comenzar ahora
             <span class="material-symbols-outlined">trending_flat</span>
           </button>
-          <a class="button ghost" href="#planes">Ver planes</a>
         </div>
         <div class="hero-stats is-hidden" aria-label="Datos destacados">
           <span><strong>5:00 AM</strong> Inicio AM</span>
@@ -72,50 +75,69 @@
       </div>
     </section>
 
-    <section class="section intro-section" id="vision">
-      <div class="container intro-grid reveal">
-        <div>
-          <p class="section-kicker">Nuestra filosofia</p>
-          <h2>Fuerza, disciplina y una comunidad que empuja.</h2>
+    <section class="section" id="novedades" data-novedades-section>
+      <div class="container">
+        <div class="section-heading centered">
+          <p class="section-kicker">Novedades</p>
+          <h2>Promociones y novedades.</h2>
         </div>
-        <p>Aqui no improvisamos tu cuerpo. Entrenamos con tecnica, progresion y acompanamiento real. Cada rutina esta pensada para que avances a tu ritmo, con trainers que corrigen, motivan y celebran cada logro.</p>
+        <div class="novedades-shell reveal">
+          <button class="carousel-control prev" type="button" aria-label="Anterior" data-novedades-prev>
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <div class="novedades-carousel" data-novedades-carousel></div>
+          <button class="carousel-control next" type="button" aria-label="Siguiente" data-novedades-next>
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="entrena">
+    <section class="section testimonials-section" id="testimonios">
       <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-kicker">Entrenamiento</p>
-          <h2>Elige como quieres moverte.</h2>
+        <div class="testimonials-header reveal">
+          <p class="testimonials-subtitle">Lo que dicen nuestros miembros</p>
+          <h2 class="testimonials-title"><em>No compites con otros, te superas a ti.</em></h2>
         </div>
-        <div class="training-grid reveal">
-          <article class="feature-card large">
-            <img src="assets/images/clase-gimnasia.jpg" alt="Clase de gimnasia en Huracan Box" />
-            <div>
-              <span class="tag">Martes</span>
-              <h3>Clases de gimnasia</h3>
-              <p>Tecnica, control corporal y progresiones para mejorar fuerza y movilidad.</p>
-              <button type="button" data-whatsapp="Hola, quiero informacion sobre las clases de gimnasia de los martes.">Preguntar por gimnasia</button>
-            </div>
-          </article>
-          <article class="feature-card">
-            <img src="assets/images/clase-crosskids.jpg" alt="Clase CrossKids" />
-            <div>
-              <span class="tag">Sabados</span>
-              <h3>CrossKids</h3>
-              <p>Entrenamiento divertido y seguro para que los ninos construyan habitos activos.</p>
-              <button type="button" data-whatsapp="Hola, quiero informacion sobre CrossKids en Huracan Box.">Info CrossKids</button>
-            </div>
-          </article>
-          <article class="feature-card">
-            <img src="assets/images/clase-cortesia.jpg" alt="Clase de cortesia" />
-            <div>
-              <span class="tag">Nuevo ingreso</span>
-              <h3>Clase de cortesia</h3>
-              <p>Ven, conoce el ambiente y prueba una sesion antes de escoger tu plan.</p>
-              <button type="button" data-whatsapp="Hola, quiero reservar mi clase de cortesia en Huracan Box.">Reservar clase</button>
-            </div>
-          </article>
+        <div class="testimonials-shell reveal">
+          <button class="carousel-control prev" type="button" aria-label="Anterior" data-testimonials-prev>
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <div class="testimonials-carousel" data-testimonials-carousel>
+            <!-- Carlos M. - Imagen: assets/images/testimonios/carlos.webp -->
+            <article class="testimonial-card">
+              <div class="testimonial-image" style="background-image: url('assets/images/testimonios/carlos.webp');">
+                <span class="testimonial-badge">RESULTADO 3 AÑOS</span>
+              </div>
+              <div class="testimonial-content">
+                <p class="testimonial-text">&ldquo;Entrenar en Huracán cambió mi perspectiva. No es solo el físico, es la disciplina que ahora aplico en todo mi estilo de vida.&rdquo;</p>
+                <p class="testimonial-author">Carlos M.</p>
+              </div>
+            </article>
+            <!-- Lucía V. - Imagen: assets/images/testimonios/lucia.jpg -->
+            <article class="testimonial-card">
+              <div class="testimonial-image" style="background-image: url('assets/images/testimonios/lucia.jpg');">
+                <span class="testimonial-badge">RESULTADO 8 MESES</span>
+              </div>
+              <div class="testimonial-content">
+                <p class="testimonial-text">&ldquo;Aquí no improvisamos. Los entrenadores realmente saben lo que hacen. El acompañamiento es real y constante.&rdquo;</p>
+                <p class="testimonial-author">Lucía V.</p>
+              </div>
+            </article>
+            <!-- Sebastián R. - Imagen: assets/images/testimonios/sebastian.webp -->
+            <article class="testimonial-card">
+              <div class="testimonial-image" style="background-image: url('assets/images/testimonios/sebastian.webp');">
+                <span class="testimonial-badge">RESULTADO 4 AÑOS</span>
+              </div>
+              <div class="testimonial-content">
+                <p class="testimonial-text">&ldquo;El ambiente te empuja a ser mejor cada día. No vienes solo a entrenar, vienes a descubrir de qué estás hecho.&rdquo;</p>
+                <p class="testimonial-author">Sebastián R.</p>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-control next" type="button" aria-label="Siguiente" data-testimonials-next>
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
         </div>
       </div>
     </section>
@@ -248,6 +270,82 @@
       </div>
     </section>
 
+    <section class="section disciplines-section" id="disciplinas">
+      <div class="container">
+        <div class="section-heading centered">
+          <h2 class="discipline-title"><span class="text-white">Nuestras</span> <span class="text-purple">Disciplinas</span></h2>
+        </div>
+        <div class="disciplines-grid reveal">
+          <!-- Musculación - Imagen: assets/images/disciplinas/musculacion/ -->
+          <div class="discipline-card large" data-discipline="musculacion">
+            <span class="discipline-name">Musculación</span>
+          </div>
+          <div class="discipline-small-grid">
+            <!-- Cardio HIIT - Imagen: assets/images/disciplinas/cardio-hiit/ -->
+            <div class="discipline-card small" data-discipline="cardio-hiit">
+              <span class="discipline-name">Cardio HIIT</span>
+            </div>
+            <!-- Cross Training - Imagen: assets/images/disciplinas/cross-training/ -->
+            <div class="discipline-card small" data-discipline="cross-training">
+              <span class="discipline-name">Cross Training</span>
+            </div>
+            <!-- Entrenamiento Funcional - Imagen: assets/images/disciplinas/funcional/ -->
+            <div class="discipline-card small wide" data-discipline="funcional">
+              <span class="discipline-name">Entrenamiento Funcional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="vision">
+      <div class="container intro-grid reveal">
+        <div>
+          <p class="section-kicker">Nuestra filosofia</p>
+          <h2>Fuerza, disciplina y una comunidad que empuja.</h2>
+        </div>
+        <p>Aqui no improvisamos tu cuerpo. Entrenamos con tecnica, progresion y acompanamiento real. Cada rutina esta pensada para que avances a tu ritmo, con trainers que corrigen, motivan y celebran cada logro.</p>
+      </div>
+    </section>
+
+    <section class="section" id="entrena">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Entrenamiento</p>
+          <h2>Elige como quieres moverte.</h2>
+        </div>
+        <div class="training-grid reveal">
+          <article class="feature-card large">
+            <img src="assets/images/clase-gimnasia.jpg" alt="Clase de gimnasia en Huracan Box" />
+            <div>
+              <span class="tag">Martes</span>
+              <h3>Clases de gimnasia</h3>
+              <p>Tecnica, control corporal y progresiones para mejorar fuerza y movilidad.</p>
+              <button type="button" data-whatsapp="Hola, quiero informacion sobre las clases de gimnasia de los martes.">Preguntar por gimnasia</button>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img src="assets/images/clase-crosskids.jpg" alt="Clase CrossKids" />
+            <div>
+              <span class="tag">Sabados</span>
+              <h3>CrossKids</h3>
+              <p>Entrenamiento divertido y seguro para que los ninos construyan habitos activos.</p>
+              <button type="button" data-whatsapp="Hola, quiero informacion sobre CrossKids en Huracan Box.">Info CrossKids</button>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img src="assets/images/clase-cortesia.jpg" alt="Clase de cortesia" />
+            <div>
+              <span class="tag">Nuevo ingreso</span>
+              <h3>Clase de cortesia</h3>
+              <p>Ven, conoce el ambiente y prueba una sesion antes de escoger tu plan.</p>
+              <button type="button" data-whatsapp="Hola, quiero reservar mi clase de cortesia en Huracan Box.">Reservar clase</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section results-section" id="experiencia">
       <div class="container">
         <div class="section-heading reveal">
@@ -305,69 +403,6 @@
         <div class="poster-stack">
           <img src="assets/images/horario-lunes-viernes.jpg" alt="Horario lunes a viernes Huracan Box" />
           <img src="assets/images/horario-semana.jpg" alt="Horario fines de semana Huracan Box" />
-        </div>
-      </div>
-
-      <div class="container schedule-mobile-cards reveal">
-        <div class="schedule-card-modern">
-          <div class="schedule-card-header">
-            <span class="material-symbols-outlined">calendar_week</span>
-            <div>
-              <h3>Lunes a Viernes</h3>
-              <p class="schedule-card-sub">Clases dirigidas por hora</p>
-            </div>
-          </div>
-          <div class="schedule-card-body">
-            <div class="schedule-block">
-              <span class="schedule-icon">🌅</span>
-              <div>
-                <strong>Manana</strong>
-                <p>5:00 a.m. - 10:00 a.m.</p>
-                <small>Ultima clase: 9:00 a.m.</small>
-              </div>
-            </div>
-            <div class="schedule-block">
-              <span class="schedule-icon">🌙</span>
-              <div>
-                <strong>Tarde / Noche</strong>
-                <p>5:30 p.m. - 9:30 p.m.</p>
-                <small>Ultima clase: 8:30 p.m.</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="schedule-card-modern">
-          <div class="schedule-card-header">
-            <span class="material-symbols-outlined">weekend</span>
-            <div>
-              <h3>Fin de Semana</h3>
-              <p class="schedule-card-sub">Clases dirigidas por hora</p>
-            </div>
-          </div>
-          <div class="schedule-card-body">
-            <div class="schedule-block">
-              <span class="schedule-icon">📅</span>
-              <div>
-                <strong>Sabado</strong>
-                <p>8:00 a.m. - Apertura e inicio de clases</p>
-                <p>10:00 a.m. - 11:00 a.m. Ultima clase dirigida</p>
-                <p>11:00 a.m. - 12:00 p.m. CrossFit Kids</p>
-                <p>12:30 p.m. - 2:00 p.m. Candeloe</p>
-                <div class="schedule-highlight">
-                  <span class="material-symbols-outlined">schedule</span>
-                  Horario general: 8:00 a.m. - 2:00 p.m.
-                </div>
-              </div>
-            </div>
-            <div class="schedule-block">
-              <span class="schedule-icon">🚫</span>
-              <div>
-                <strong>Domingos y Festivos</strong>
-                <p>No hay servicio</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -532,9 +567,7 @@
       </div>
     </section>
 
-
   </main>
-
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid reveal">
@@ -555,11 +588,12 @@
         </div>
         <div class="footer-links">
           <h3>Navegación</h3>
-          <a href="#entrena">Entrena</a>
-          <a href="#suplementos">Tienda</a>
-          <a href="#horarios">Horarios</a>
+          <a href="#testimonios">Testimonios</a>
           <a href="#planes">Planes</a>
-          <a href="#experiencia">Experiencia</a>
+          <a href="#disciplinas">Disciplinas</a>
+          <a href="#entrena">Entrena</a>
+          <a href="#horarios">Horarios</a>
+          <a href="#suplementos">Suplementos</a>
         </div>
         <div class="footer-contact">
           <h3>Contacto</h3>
@@ -570,7 +604,7 @@
         <div class="footer-newsletter">
           <h3>Newsletter</h3>
           <p>Recibe tips, promos y novedades.</p>
-          <form class="mini-form" data-newsletter-form>
+          <form class="mini-form" data-newsletter-form novalidate>
             <input type="email" placeholder="Tu correo" required />
             <button type="submit" aria-label="Suscribirme"><span class="material-symbols-outlined">send</span></button>
           </form>
@@ -586,7 +620,19 @@
   </div>
 
   <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <div class="admin-overlay" data-admin-overlay>
+    <div class="admin-modal">
+      <h3>Administrar Novedades</h3>
+      <p>Sube hasta 5 imágenes (9:16 recomendado).</p>
+      <input type="file" accept="image/*" multiple data-admin-file />
+      <div class="admin-grid" data-admin-grid></div>
+      <button class="button ghost" type="button" data-admin-close>Cerrar</button>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" crossorigin="anonymous"></script>
+  <script src="js/phrases.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
