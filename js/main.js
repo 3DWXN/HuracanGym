@@ -176,6 +176,11 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
       const target = href ? document.querySelector(href) : null;
+      mainNav?.classList.remove("is-open");
+      document.body.classList.remove("menu-open");
+      const wrapper = document.getElementById("smooth-wrapper");
+      if (wrapper) wrapper.style.overflow = "auto";
+      if (lenis) lenis.start();
       if (target) {
         e.preventDefault();
         if (lenis) {
@@ -185,12 +190,9 @@ document.addEventListener("DOMContentLoaded", () => {
           smoothWrapper.scrollTo({ top, behavior: "smooth" });
         }
       }
-      mainNav?.classList.remove("is-open");
-      document.body.classList.remove("menu-open");
       menuToggle?.setAttribute("aria-expanded", "false");
       const icon = menuToggle?.querySelector(".material-symbols-outlined");
       if (icon) icon.textContent = "menu";
-      if (lenis) lenis.start();
     });
   });
 
@@ -615,6 +617,13 @@ document.addEventListener("DOMContentLoaded", () => {
       nextBg.style.opacity = "1";
       state.active = nextActive;
       state.idx = next;
+      if (isTouchDevice) {
+        const card = document.querySelector(`[data-discipline="${key}"]`);
+        if (card) {
+          card.classList.add("discipline-rotate");
+          setTimeout(() => card.classList.remove("discipline-rotate"), 800);
+        }
+      }
     }
   }
 
