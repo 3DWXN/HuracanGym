@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Huracan Box: gimnasio, clases grupales, planes de entrenamiento y suplementos deportivos." />
+  <meta property="og:title" content="Huracan Box | Gimnasio y Suplementos" />
+  <meta property="og:description" content="Entrena con los mejores equipos, entrenadores certificados y un ambiente disenado para alcanzar tus objetivos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://huracanbox.com" />
+  <meta property="og:image" content="https://huracanbox.com/assets/images/Logo.png" />
+  <meta property="og:locale" content="es_CO" />
   <meta name="theme-color" content="#0f0e14" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Huracan Box",
+    "description": "Gimnasio, clases grupales, planes de entrenamiento y suplementos deportivos.",
+    "url": "https://huracanbox.com",
+    "telephone": "+57 311 36218094",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 52 # 11d-38",
+      "addressLocality": "Cali",
+      "addressRegion": "Valle del Cauca",
+      "addressCountry": "CO"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "05:00", "closes": "21:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "05:00", "closes": "21:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "05:00", "closes": "21:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "05:00", "closes": "21:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "05:00", "closes": "21:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "06:00", "closes": "18:00" }
+    ]
+  }
+  </script>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
@@ -21,22 +52,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/images/clase-cortesia.jpg" as="image" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
   <header class="site-header" data-header>
     <a class="brand" href="#inicio" aria-label="Ir al inicio">
       <span>Huracan Box</span>
     </a>
 
-    <img class="header-logo" src="assets/images/Logo.png" alt="Logo Huracan Box" />
+    <img class="header-logo" src="assets/images/Logo.png" alt="Logo Huracan Box" decoding="async" />
 
     <div class="header-right">
       <button class="icon-button menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
-        <span class="material-symbols-outlined">menu</span>
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
       </button>
 
-      <nav class="main-nav" data-main-nav>
+      <nav class="main-nav" data-main-nav aria-label="Navegacion principal">
         <span class="nav-slider" aria-hidden="true"></span>
         <a href="#testimonios">Testimonios</a>
         <a href="#planes">Planes</a>
@@ -50,21 +83,21 @@
   </header>
   <div id="smooth-wrapper">
     <div id="smooth-content">
-  <main>
-    <section class="hero" id="inicio">
+  <main id="main-content">
+    <section class="hero" id="inicio" role="region" aria-label="Inicio">
       <div class="hero-media" aria-hidden="true">
-        <img src="assets/images/clase-cortesia.jpg" alt="" />
+        <img src="assets/images/clase-cortesia.jpg" alt="" fetchpriority="high" />
       </div>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <p class="eyebrow"><span class="material-symbols-outlined">bolt</span> Estilo Huracan</p>
+        <p class="eyebrow"><span class="material-symbols-outlined" aria-hidden="true">bolt</span> Estilo Huracan</p>
         <h1 class="hero-title" data-hero-title></h1>
         <p class="hero-copy">Entrena con los mejores equipos, entrenadores certificados y un ambiente disenado para alcanzar tus objetivos mas ambiciosos.</p>
         <p class="hero-lema">No compites con otros. Te superas a ti.</p>
         <div class="hero-actions">
           <button class="button primary" type="button" data-scroll-to="planes">
             Comenzar ahora
-            <span class="material-symbols-outlined">trending_flat</span>
+            <span class="material-symbols-outlined" aria-hidden="true">trending_flat</span>
           </button>
         </div>
         <div class="hero-stats is-hidden" aria-label="Datos destacados">
@@ -75,7 +108,7 @@
       </div>
     </section>
 
-    <section class="section" id="novedades" data-novedades-section>
+    <section class="section" id="novedades" data-novedades-section role="region" aria-label="Novedades">
       <div class="container">
         <div class="section-heading centered">
           <p class="section-kicker">Novedades</p>
@@ -83,17 +116,17 @@
         </div>
         <div class="novedades-shell reveal">
           <button class="carousel-control prev" type="button" aria-label="Anterior" data-novedades-prev>
-            <span class="material-symbols-outlined">chevron_left</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           </button>
           <div class="novedades-carousel" data-novedades-carousel></div>
           <button class="carousel-control next" type="button" aria-label="Siguiente" data-novedades-next>
-            <span class="material-symbols-outlined">chevron_right</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
           </button>
         </div>
       </div>
     </section>
 
-    <section class="section testimonials-section" id="testimonios">
+    <section class="section testimonials-section" id="testimonios" role="region" aria-label="Testimonios">
       <div class="container">
         <div class="testimonials-header reveal">
           <p class="testimonials-subtitle">Lo que dicen nuestros miembros</p>
@@ -101,7 +134,7 @@
         </div>
         <div class="testimonials-shell reveal">
           <button class="carousel-control prev" type="button" aria-label="Anterior" data-testimonials-prev>
-            <span class="material-symbols-outlined">chevron_left</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           </button>
           <div class="testimonials-carousel" data-testimonials-carousel>
             <!-- Carlos M. - Imagen: assets/images/testimonios/carlos.webp -->
@@ -136,13 +169,13 @@
             </article>
           </div>
           <button class="carousel-control next" type="button" aria-label="Siguiente" data-testimonials-next>
-            <span class="material-symbols-outlined">chevron_right</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
           </button>
         </div>
       </div>
     </section>
 
-    <section class="section plans-section" id="planes">
+    <section class="section plans-section" id="planes" role="region" aria-label="Planes">
       <div class="container">
         <div class="section-heading centered">
           <p class="section-kicker">Membresias</p>
@@ -151,7 +184,7 @@
         </div>
         <div class="plans-shell reveal">
           <button class="carousel-control prev" type="button" aria-label="Plan anterior" data-plans-prev>
-            <span class="material-symbols-outlined">chevron_left</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           </button>
           <div class="plans-carousel" data-plans-carousel>
             <article class="plan-card" data-plan="Mensual">
@@ -264,13 +297,13 @@
             </article>
           </div>
           <button class="carousel-control next" type="button" aria-label="Siguiente plan" data-plans-next>
-            <span class="material-symbols-outlined">chevron_right</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
           </button>
         </div>
       </div>
     </section>
 
-    <section class="section disciplines-section" id="disciplinas">
+    <section class="section disciplines-section" id="disciplinas" role="region" aria-label="Disciplinas">
       <div class="container">
         <div class="section-heading centered">
           <h2 class="discipline-title"><span class="text-white">Nuestras</span> <span class="text-purple">Disciplinas</span></h2>
@@ -308,7 +341,7 @@
       </div>
     </section>
 
-    <section class="section" id="entrena">
+    <section class="section" id="entrena" role="region" aria-label="Entrenamiento">
       <div class="container">
         <div class="section-heading reveal">
           <p class="section-kicker">Entrenamiento</p>
@@ -316,7 +349,7 @@
         </div>
         <div class="training-grid reveal">
           <article class="feature-card large">
-            <img src="assets/images/clase-gimnasia.jpg" alt="Clase de gimnasia en Huracan Box" />
+            <img src="assets/images/clase-gimnasia.jpg" alt="Clase de gimnasia en Huracan Box" loading="lazy" decoding="async" />
             <div>
               <span class="tag">Martes</span>
               <h3>Clases de gimnasia</h3>
@@ -325,7 +358,7 @@
             </div>
           </article>
           <article class="feature-card">
-            <img src="assets/images/clase-crosskids.jpg" alt="Clase CrossKids" />
+            <img src="assets/images/clase-crosskids.jpg" alt="Clase CrossKids" loading="lazy" decoding="async" />
             <div>
               <span class="tag">Sabados</span>
               <h3>CrossKids</h3>
@@ -334,7 +367,7 @@
             </div>
           </article>
           <article class="feature-card">
-            <img src="assets/images/clase-cortesia.jpg" alt="Clase de cortesia" />
+            <img src="assets/images/clase-cortesia.jpg" alt="Clase de cortesia" loading="lazy" decoding="async" />
             <div>
               <span class="tag">Nuevo ingreso</span>
               <h3>Clase de cortesia</h3>
@@ -357,19 +390,19 @@
         </div>
         <div class="experience-grid reveal">
           <article>
-            <span class="material-symbols-outlined">flag</span>
+            <span class="material-symbols-outlined" aria-hidden="true">flag</span>
             <h3>Valoracion inicial</h3>
             <p>Agenda una valoracion gratuita y descubre desde donde empezar. Te guiamos segun tu objetivo, experiencia y disponibilidad.</p>
             <button type="button" data-whatsapp="Hola, quiero agendar una valoracion inicial en Huracan Box.">Agendar valoracion</button>
           </article>
           <article>
-            <span class="material-symbols-outlined">groups</span>
+            <span class="material-symbols-outlined" aria-hidden="true">groups</span>
             <h3>Comunidad</h3>
             <p>No entrenas solo. Clases grupales, entrenadores que te corrigen y un ambiente que te lleva a dar ese esfuerzo extra cada dia.</p>
             <button type="button" data-whatsapp="Hola, quiero saber como son las clases y la comunidad de Huracan Box.">Conocer clases</button>
           </article>
           <article>
-            <span class="material-symbols-outlined">monitoring</span>
+            <span class="material-symbols-outlined" aria-hidden="true">monitoring</span>
             <h3>Progreso</h3>
             <p>Fuerza, resistencia, perdida de grasa o rendimiento. Definimos tu meta y medimos resultados con seguimiento periodico.</p>
             <button type="button" data-whatsapp="Hola, quiero entrenar con un objetivo claro y recibir orientacion.">Definir objetivo</button>
@@ -378,7 +411,7 @@
       </div>
     </section>
 
-    <section class="section" id="horarios">
+    <section class="section" id="horarios" role="region" aria-label="Horarios">
       <div class="container schedule-layout reveal">
         <div class="schedule-info">
           <p class="section-kicker">Horarios</p>
@@ -386,12 +419,12 @@
           <p>Clases dirigidas por horario, de lunes a sabado. Encuentra el bloque que mejor se ajuste a tu dia.</p>
           <div class="schedule-cards">
             <article>
-              <h3><span class="material-symbols-outlined">wb_sunny</span> Manana</h3>
+              <h3><span class="material-symbols-outlined" aria-hidden="true">wb_sunny</span> Manana</h3>
               <p>5:00 AM a 10:00 AM</p>
               <small>Ultima clase: 9:00 AM</small>
             </article>
             <article>
-              <h3><span class="material-symbols-outlined">dark_mode</span> Tarde / noche</h3>
+              <h3><span class="material-symbols-outlined" aria-hidden="true">dark_mode</span> Tarde / noche</h3>
               <p>5:30 PM a 9:30 PM</p>
               <small>Ultima clase: 8:30 PM</small>
             </article>
@@ -399,7 +432,7 @@
           <div class="schedule-mobile-cards reveal">
             <div class="schedule-card-modern">
               <div class="schedule-card-header">
-                <span class="material-symbols-outlined" style="color:var(--gold, #ffcf33)">weekend</span>
+                <span class="material-symbols-outlined" aria-hidden="true" style="color:var(--gold, #ffcf33)">weekend</span>
                 <div>
                   <h3 style="font-family:inherit;text-transform:none;font-size:1rem">Fin de Semana</h3>
                   <p class="schedule-card-sub">Clases dirigidas por hora</p>
@@ -414,7 +447,7 @@
                     <p>11:00 a.m. - 12:00 p.m. CrossFit Kids</p>
                     <p>12:30 p.m. - 2:00 p.m. Candeloe</p>
                     <div class="schedule-highlight">
-                      <span class="material-symbols-outlined">schedule</span>
+                      <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
                       Horario general: 8:00 a.m. - 2:00 p.m.
                     </div>
                   </div>
@@ -431,13 +464,13 @@
           <button class="button primary" type="button" data-whatsapp="Hola, quiero confirmar disponibilidad de horarios para entrenar en Huracan Box.">Confirmar horario</button>
         </div>
         <div class="poster-stack">
-          <img src="assets/images/horario-lunes-viernes.jpg" alt="Horario lunes a viernes Huracan Box" />
-          <img src="assets/images/horario-semana.jpg" alt="Horario fines de semana Huracan Box" />
+          <img src="assets/images/horario-lunes-viernes.jpg" alt="Horario lunes a viernes Huracan Box" loading="lazy" decoding="async" />
+          <img src="assets/images/horario-semana.jpg" alt="Horario fines de semana Huracan Box" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
-    <section class="section store-section" id="suplementos">
+    <section class="section store-section" id="suplementos" role="region" aria-label="Tienda de suplementos">
       <div class="container">
         <div class="section-heading">
           <p class="section-kicker">Tienda</p>
@@ -447,46 +480,46 @@
         <p class="store-intro reveal">Potencia tu rendimiento con nuestra linea de suplementos deportivos seleccionados para impulsar cada fase de tu entrenamiento. Consulta disponibilidad y precio directamente por WhatsApp.</p>
         <div class="store-shell reveal">
           <button class="carousel-control prev" type="button" aria-label="Producto anterior" data-carousel-prev>
-            <span class="material-symbols-outlined">chevron_left</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
           </button>
           <div class="products-carousel" data-products-carousel>
           <article class="product-card" data-product="CR7 nueva presentacion" data-delay="0">
-            <img src="assets/images/producto-cr7.jpg" alt="Suplemento CR7 nueva presentacion" />
+            <img src="assets/images/producto-cr7.jpg" alt="Suplemento CR7 nueva presentacion" loading="lazy" decoding="async" />
             <span class="product-badge" data-category="pre-entreno">Pre-entreno</span>
             <h3>CR7 nueva presentacion</h3>
             <p>Pre-entreno premium con beta-alanina y cafeina. Disenado para maximizar energia, enfoque y bombeo muscular durante entrenamientos de alta intensidad. Registro Invima aprobado.</p>
             <button type="button">Consultar</button>
           </article>
           <article class="product-card" data-product="Creatina 100" data-delay="0.1">
-            <img src="assets/images/producto-creatina-100.jpg" alt="Creatina 100" />
+            <img src="assets/images/producto-creatina-100.jpg" alt="Creatina 100" loading="lazy" decoding="async" />
             <span class="product-badge" data-category="creatina">Creatina</span>
             <h3>Creatina 100</h3>
             <p>Creatina monohidratada 100% pura, sin sellos ni aditivos. Ideal para aumentar fuerza, potencia explosiva y rendimiento en ejercicios de alta demanda energetica.</p>
             <button type="button">Consultar</button>
           </article>
           <article class="product-card" data-product="Atomic 05" data-delay="0.2">
-            <img src="assets/images/producto-atomic.jpg" alt="Atomic 05" />
+            <img src="assets/images/producto-atomic.jpg" alt="Atomic 05" loading="lazy" decoding="async" />
             <span class="product-badge" data-category="pre-entreno">Pre-entreno</span>
             <h3>Atomic 05</h3>
             <p>Formula avanzada pre-entreno con ingredientes termogenicos y potenciadores cognitivos. Energia sostenida, concentracion profunda y retardo de la fatiga muscular.</p>
             <button type="button">Consultar</button>
           </article>
           <article class="product-card" data-product="Creatina Monohydrate" data-delay="0.3">
-            <img src="assets/images/producto-creatina-monohydrate.jpg" alt="Creatina monohydrate" />
+            <img src="assets/images/producto-creatina-monohydrate.jpg" alt="Creatina monohydrate" loading="lazy" decoding="async" />
             <span class="product-badge" data-category="creatina">Creatina</span>
             <h3>Creatina Monohydrate</h3>
             <p>Creatina monohidratada micronizada de rapida absorcion. Acelera la recuperacion muscular, incrementa la fuerza maxima y optimiza el rendimiento en series de alta intensidad.</p>
             <button type="button">Consultar</button>
           </article>
           <article class="product-card" data-product="Best Protein" data-delay="0.4">
-            <img src="assets/images/producto-best-protein.jpg" alt="Best Protein" />
+            <img src="assets/images/producto-best-protein.jpg" alt="Best Protein" loading="lazy" decoding="async" />
             <span class="product-badge" data-category="proteina">Proteina</span>
             <h3>Best Protein</h3>
             <p>Whey Protein de suero de leche con perfil completo de aminoacidos. Complementa tu ingesta proteica diaria, favorece la recuperacion y el desarrollo muscular magro.</p>
             <button type="button">Consultar</button>
           </article>
           <article class="product-card" data-product="Batidos de proteina" data-delay="0.5">
-            <img src="assets/images/batidos-proteina.jpg" alt="Batidos de proteina Huracan Box" />
+            <img src="assets/images/batidos-proteina.jpg" alt="Batidos de proteina Huracan Box" loading="lazy" decoding="async" />
             <span class="product-badge" data-category="batidos">Batidos</span>
             <h3>Batidos de proteina</h3>
             <p>Batidos listos para consumir, practicos y deliciosos. Proteina de alta calidad en formato ready-to-drink, perfecto post-entreno o como colacion proteica entre comidas.</p>
@@ -494,7 +527,7 @@
           </article>
           </div>
           <button class="carousel-control next" type="button" aria-label="Siguiente producto" data-carousel-next>
-            <span class="material-symbols-outlined">chevron_right</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
           </button>
         </div>
         <div class="carousel-progress"><div class="carousel-progress-track" data-carousel-track></div></div>
@@ -543,18 +576,19 @@
         </div>
         <div class="chatbot" data-chatbot>
           <div class="chatbot-header">
-            <span class="chatbot-avatar"><span class="material-symbols-outlined">smart_toy</span></span>
+            <span class="chatbot-avatar"><span class="material-symbols-outlined" aria-hidden="true">smart_toy</span></span>
             <div>
               <p class="chatbot-name">Asistente Huracán</p>
               <p class="chatbot-status">Online</p>
             </div>
+            <button class="chat-clear" type="button" data-chat-clear>Limpiar</button>
           </div>
           <div class="chat-window" data-chat-window>
             <div class="bot-message">Hola, soy el asistente de Huracan Box. Preguntame por planes, horarios, suplementos, clase de cortesia o PQRS.</div>
           </div>
           <form class="chat-form" data-chat-form>
             <input name="question" type="text" placeholder="Escribe tu pregunta..." autocomplete="off" />
-            <button type="submit" aria-label="Enviar"><span class="material-symbols-outlined">send</span></button>
+            <button type="submit" aria-label="Enviar"><span class="material-symbols-outlined" aria-hidden="true">send</span></button>
           </form>
         </div>
       </div>
@@ -562,7 +596,7 @@
 
 
 
-    <section class="section contact-section" id="contacto">
+    <section class="section contact-section" id="contacto" role="region" aria-label="Contacto">
       <div class="container contact-grid reveal">
         <div>
           <p class="section-kicker">Contacto</p>
@@ -636,7 +670,7 @@
           <p>Recibe tips, promos y novedades.</p>
           <form class="mini-form" data-newsletter-form novalidate>
             <input type="email" placeholder="Tu correo" required />
-            <button type="submit" aria-label="Suscribirme"><span class="material-symbols-outlined">send</span></button>
+            <button type="submit" aria-label="Suscribirme"><span class="material-symbols-outlined" aria-hidden="true">send</span></button>
           </form>
         </div>
       </div>
@@ -663,6 +697,7 @@
 
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" crossorigin="anonymous"></script>
   <script src="js/phrases.js"></script>
+  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

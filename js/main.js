@@ -1,8 +1,4 @@
-const WHATSAPP_NUMBER = "5731136218094";
-const MAP_QUERY = "Calle 52 # 11d-38 B/Villacolombia, Cali Colombia";
-const SHOW_NOVEDADES = true;
-const ADMIN_PASSWORD = "edwin2025";
-const STORAGE_KEY = "novedades_images";
+// Config moved to js/config.js
 
 const faqAnswers = [
   {
@@ -98,7 +94,7 @@ function showToast(message) {
   window.clearTimeout(showToast.timeout);
   showToast.timeout = window.setTimeout(() => {
     toast.classList.remove("is-visible");
-  }, 3000);
+  }, 4000);
 }
 
 const yearEl = document.querySelector("[data-year]");
@@ -220,34 +216,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const carousel = byData("products-carousel");
-  const carouselTrack = byData("carousel-track");
-
-  function slideCarousel(dir) {
-    if (!carousel) return;
-    const card = carousel.querySelector(".product-card");
-    const amount = card ? card.getBoundingClientRect().width + 18 : 320;
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-    if (dir === 1 && carousel.scrollLeft >= maxScroll - 16) {
-      carousel.scrollTo({ left: 0, behavior: "smooth" });
-    } else if (dir === -1 && carousel.scrollLeft <= 16) {
-      carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
-    } else {
-      carousel.scrollBy({ left: amount * dir, behavior: "smooth" });
-    }
+  function createCarousel({ container, itemSelector, gap = 18, wrap = false } = {}) {
+    return function(dir) {
+      const el = byData(container);
+      if (!el) return;
+      const item = el.querySelector(itemSelector);
+      if (!item) return;
+      const amount = item.getBoundingClientRect().width + gap;
+      if (wrap) {
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (dir === 1 && el.scrollLeft >= maxScroll - 16) {
+          el.scrollTo({ left: 0, behavior: "smooth" });
+        } else if (dir === -1 && el.scrollLeft <= 16) {
+          el.scrollTo({ left: maxScroll, behavior: "smooth" });
+        } else {
+          el.scrollBy({ left: amount * dir, behavior: "smooth" });
+        }
+      } else {
+        el.scrollBy({ left: amount * dir, behavior: "smooth" });
+      }
+    };
   }
 
-  byData("carousel-next")?.addEventListener("click", () => slideCarousel(1));
-  byData("carousel-prev")?.addEventListener("click", () => slideCarousel(-1));
+  const slideProducts = createCarousel({ container: "products-carousel", itemSelector: ".product-card", gap: 18, wrap: true });
+  byData("carousel-next")?.addEventListener("click", () => slideProducts(1));
+  byData("carousel-prev")?.addEventListener("click", () => slideProducts(-1));
 
-  const plansCarousel = byData("plans-carousel");
-  const slidePlans = (direction) => {
-    if (!plansCarousel) return;
-    const card = plansCarousel.querySelector(".plan-card");
-    const amount = card ? card.getBoundingClientRect().width + 18 : 320;
-    plansCarousel.scrollBy({ left: amount * direction, behavior: "smooth" });
-  };
-
+  const slidePlans = createCarousel({ container: "plans-carousel", itemSelector: ".plan-card", gap: 18 });
   byData("plans-next")?.addEventListener("click", () => slidePlans(1));
   byData("plans-prev")?.addEventListener("click", () => slidePlans(-1));
 
@@ -266,15 +261,28 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
   });
 
+  const loginAttempts = { count: 0, locked: 0 };
   byData("newsletter-form")?.addEventListener("submit", (event) => {
     event.preventDefault();
     const input = event.currentTarget.querySelector("input");
     const value = input?.value.trim();
     if (!value) return;
     event.currentTarget.reset();
-    if (value === ADMIN_PASSWORD) {
+    if (Date.now() - loginAttempts.locked < 30000) {
+      showToast("Demasiados intentos. Espera 30 segundos.");
+      return;
+    }
+    if (btoa(value) === ADMIN_HASH) {
+      loginAttempts.count = 0;
       renderAdminGrid();
       adminOverlay?.classList.add("is-open");
+      return;
+    }
+    loginAttempts.count++;
+    if (loginAttempts.count >= 3) {
+      loginAttempts.locked = Date.now();
+      loginAttempts.count = 0;
+      showToast("Admin bloqueado 30 segundos por seguridad.");
       return;
     }
     showToast("Listo. Dejamos la suscripcion preparada para conectar con correo real.");
@@ -282,6 +290,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const chatWindow = byData("chat-window");
   const chatForm = byData("chat-form");
+  const CHAT_HISTORY_KEY = "huracan_chat_history";
+
+  function saveChatHistory() {
+    if (!chatWindow) return;
+    const items = [];
+    chatWindow.querySelectorAll(".bot-message, .user-message").forEach((el) => {
+      items.push({ text: el.textContent, type: el.classList.contains("user-message") ? "user" : "bot" });
+    });
+    try { sessionStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(items)); } catch {}
+  }
+
+  function restoreChatHistory() {
+    if (!chatWindow) return;
+    try {
+      const data = sessionStorage.getItem(CHAT_HISTORY_KEY);
+      if (!data) return;
+      const items = JSON.parse(data);
+      if (!Array.isArray(items) || items.length === 0) return;
+      chatWindow.innerHTML = "";
+      items.forEach((item) => {
+        const bubble = document.createElement("div");
+        bubble.className = item.type === "user" ? "user-message" : "bot-message";
+        bubble.textContent = item.text;
+        chatWindow.appendChild(bubble);
+      });
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    } catch {}
+  }
+
+  function showTyping() {
+    if (!chatWindow) return;
+    const el = document.createElement("div");
+    el.className = "chat-typing";
+    el.id = "chat-typing";
+    el.innerHTML = "<span></span><span></span><span></span>";
+    chatWindow.appendChild(el);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
+
+  function hideTyping() {
+    const el = chatWindow?.querySelector("#chat-typing");
+    if (el) el.remove();
+  }
 
   function addChatMessage(text, type = "bot") {
     if (!chatWindow) return;
@@ -290,23 +341,31 @@ document.addEventListener("DOMContentLoaded", () => {
     bubble.textContent = text;
     chatWindow.appendChild(bubble);
     chatWindow.scrollTop = chatWindow.scrollHeight;
+    saveChatHistory();
   }
 
   function answerQuestion(rawQuestion) {
     const question = rawQuestion.trim();
     if (!question) return;
     addChatMessage(question, "user");
-    const normalized = question.toLowerCase();
-    const match = faqAnswers.find((item) => item.keys.some((key) => normalized.includes(key)));
-    if (match) {
-      addChatMessage(match.answer);
-      return;
-    }
-    addChatMessage("Esa pregunta necesita respuesta personalizada. Te puedo abrir WhatsApp con tu mensaje para que el gimnasio te responda directo.");
+    showTyping();
     window.setTimeout(() => {
-      openWhatsApp(`Hola, tengo esta consulta para Huracan Box: ${question}`);
-    }, 700);
+      hideTyping();
+      const normalized = question.toLowerCase();
+      const match = faqAnswers.find((item) => item.keys.some((key) => normalized.includes(key)));
+      if (match) {
+        addChatMessage(match.answer);
+        return;
+      }
+      const suggestions = ["planes", "horarios", "suplementos", "clase de cortesia", "PQRS"];
+      addChatMessage("No entendi bien tu pregunta. Puedes preguntar sobre: " + suggestions.join(", ") + ". O te conecto directo por WhatsApp.");
+      window.setTimeout(() => {
+        openWhatsApp(`Hola, tengo esta consulta para Huracan Box: ${question}`);
+      }, 700);
+    }, 600);
   }
+
+  restoreChatHistory();
 
   chatForm?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -319,6 +378,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = event.target.closest("button");
     if (!button) return;
     answerQuestion(button.textContent);
+  });
+
+  byData("chat-clear")?.addEventListener("click", () => {
+    if (!chatWindow) return;
+    chatWindow.innerHTML = "";
+    const msg = document.createElement("div");
+    msg.className = "bot-message";
+    msg.textContent = "Hola, soy el asistente de Huracan Box. Preguntame por planes, horarios, suplementos, clase de cortesia o PQRS.";
+    chatWindow.appendChild(msg);
+    try { sessionStorage.removeItem(CHAT_HISTORY_KEY); } catch {}
   });
 
   const observer = new IntersectionObserver((entries) => {
@@ -400,44 +469,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderNovedades();
 
-  const novedadesNext = byData("novedades-next");
-  const novedadesPrev = byData("novedades-prev");
+  const slideNovedades = createCarousel({ container: "novedades-carousel", itemSelector: ".novedad-slide", gap: 18, wrap: true });
+  byData("novedades-next")?.addEventListener("click", () => slideNovedades(1));
+  byData("novedades-prev")?.addEventListener("click", () => slideNovedades(-1));
 
-  function slideNovedades(dir) {
-    if (!novedadesCarousel) return;
-    const slide = novedadesCarousel.querySelector(".novedad-slide");
-    if (!slide) return;
-    const amount = slide.getBoundingClientRect().width + 18;
-    const maxScroll = novedadesCarousel.scrollWidth - novedadesCarousel.clientWidth;
-    if (dir === 1 && novedadesCarousel.scrollLeft >= maxScroll - 16) {
-      novedadesCarousel.scrollTo({ left: 0, behavior: "smooth" });
-    } else if (dir === -1 && novedadesCarousel.scrollLeft <= 16) {
-      novedadesCarousel.scrollTo({ left: maxScroll, behavior: "smooth" });
-    } else {
-      novedadesCarousel.scrollBy({ left: amount * dir, behavior: "smooth" });
-    }
-  }
-
-  novedadesNext?.addEventListener("click", () => slideNovedades(1));
-  novedadesPrev?.addEventListener("click", () => slideNovedades(-1));
-
-  const testimonialsCarousel = byData("testimonials-carousel");
-
-  function slideTestimonials(dir) {
-    if (!testimonialsCarousel) return;
-    const card = testimonialsCarousel.querySelector(".testimonial-card");
-    if (!card) return;
-    const amount = card.getBoundingClientRect().width + 20;
-    const maxScroll = testimonialsCarousel.scrollWidth - testimonialsCarousel.clientWidth;
-    if (dir === 1 && testimonialsCarousel.scrollLeft >= maxScroll - 16) {
-      testimonialsCarousel.scrollTo({ left: 0, behavior: "smooth" });
-    } else if (dir === -1 && testimonialsCarousel.scrollLeft <= 16) {
-      testimonialsCarousel.scrollTo({ left: maxScroll, behavior: "smooth" });
-    } else {
-      testimonialsCarousel.scrollBy({ left: amount * dir, behavior: "smooth" });
-    }
-  }
-
+  const slideTestimonials = createCarousel({ container: "testimonials-carousel", itemSelector: ".testimonial-card", gap: 20, wrap: true });
   byData("testimonials-next")?.addEventListener("click", () => slideTestimonials(1));
   byData("testimonials-prev")?.addEventListener("click", () => slideTestimonials(-1));
 
