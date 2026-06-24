@@ -24,9 +24,28 @@
   height: 100%;
   overflow: auto;
   z-index: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
   background:
     radial-gradient(circle at top left, rgba(157, 53, 255, 0.24), transparent 34rem),
     linear-gradient(180deg, #120817 0%, #0d0710 58%, #130a17 100%);
+}
+
+#smooth-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+#smooth-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#smooth-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 99px;
+}
+
+#smooth-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-strong);
 }
 
 #smooth-content {
@@ -199,15 +218,14 @@ button {
   gap: 16px;
   min-height: 72px;
   padding: calc(10px + env(safe-area-inset-top, 0px)) clamp(26px, 5vw, 72px);
-  background: rgba(15, 14, 20, 0.96);
+  background: #0f0e14;
   border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(16px);
   transition: background 180ms ease, padding 180ms ease;
 }
 
 .site-header.is-scrolled {
   padding-block: 8px;
-  background: rgba(15, 14, 20, 0.98);
+  background: #0b0a0e;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
 }
 
