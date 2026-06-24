@@ -599,24 +599,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const disciplineImages = {
     musculacion: [
-      "assets/images/disciplinas/musculacion/stock-photo-fit-athlete-pumping-up-his-biceps-on-a-hand-pull-machine-in-a-dark-gym.jpg",
-      "assets/images/disciplinas/musculacion/stock-photo-handsome-athletic-bodybuilder-lifting-barbell-dark-gym.jpg",
-      "assets/images/disciplinas/musculacion/stock-photo-handsome-fit-sportsman-working-out-barbells-dark-gym.jpg",
-      "assets/images/disciplinas/musculacion/stock-photo-shirtless-bodybuilder-doing-weightlifts-with-barbell-in-a-dark-gym-surrounded-by-smoke.jpg",
-      "assets/images/disciplinas/musculacion/pngtree-a-youthful-and-athletic-couple-engaging-in-functional-training-at-the-gym-photo-image_47856866.jpg",
+      "assets/images/disciplinas/musculacion/1.jpg",
+      "assets/images/disciplinas/musculacion/2.jpg",
+      "assets/images/disciplinas/musculacion/3.jpg",
+      "assets/images/disciplinas/musculacion/4.jpg",
+      "assets/images/disciplinas/musculacion/12.jpg",
     ],
     "cardio-hiit": [
-      "assets/images/disciplinas/cardio-hiit/HIIT_Workout.jpg",
-      "assets/images/disciplinas/cardio-hiit/pngtree-a-fit-duo-in-a-functional-training-gym-using-battle-ropes-for-exercise-photo-image_42585352.jpg",
+      "assets/images/disciplinas/cardio-hiit/5.jpg",
+      "assets/images/disciplinas/cardio-hiit/6.jpg",
     ],
     "cross-training": [
-      "assets/images/disciplinas/cross-training/pngtree-a-fit-duo-in-a-functional-training-gym-using-battle-ropes-for-exercise-photo-image_42585352.jpg",
-      "assets/images/disciplinas/cross-training/stock-photo-handsome-fit-sportsman-working-out-barbells-dark-gym.jpg",
+      "assets/images/disciplinas/cross-training/10.jpg",
+      "assets/images/disciplinas/cross-training/11.jpg",
+      "assets/images/disciplinas/cross-training/logo.jpg",
     ],
     funcional: [
-      "assets/images/disciplinas/funcional/CR006PRPP_The-Hub_November-Article-Images_Cardio_1600x736_12.30.22-500x230.jpg",
-      "assets/images/disciplinas/funcional/pngtree-beautiful-athletic-woman-exercising-at-the-gym-functional-training-weight-abs-photo-image_48667346.jpg",
-      "assets/images/disciplinas/funcional/stock-photo-handsome-athletic-bodybuilder-lifting-barbell-dark-gym.jpg",
+      "assets/images/disciplinas/funcional/7.jpg",
+      "assets/images/disciplinas/funcional/8.jpg",
+      "assets/images/disciplinas/funcional/9.jpg",
     ],
   };
 
@@ -664,4 +665,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setInterval(rotateDisciplines, DISCIPLINE_INTERVAL);
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(rotateDisciplines, 300);
+  });
 });
